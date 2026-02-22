@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Specials | Brew Haven Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a2c2a;
+            --accent: #d4a373;
+            --bg-warm: #fdf5f0;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-warm);
+            color: #43302b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--white);
+            padding: 60px 8%;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .pastry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .pastry-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+        }
+
+        .pastry-card:hover { transform: translateY(-8px); }
+
+        .pastry-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .pastry-info { padding: 25px; }
+
+        .pastry-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-top: 15px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>From Our Mini Kitchen</h1>
+        <p>Freshly prepared hot bites to fuel your productivity.</p>
+    </header>
+
+    <div class="container">
+        <div class="pastry-grid">
+            
+            <div class="pastry-card">
+                <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600" class="pastry-img" alt="Masala Noodles">
+                <div class="pastry-info">
+                    <h3>Masala Street Noodles</h3>
+                    <p>Wok-tossed noodles with crunchy local veggies and a spicy Hyderabadi "Thela" style masala kick.</p>
+                    <span class="price">₹160</span>
+                </div>
+            </div>
+
+            <div class="pastry-card">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600" class="pastry-img" alt="Creamy Pasta">
+                <div class="pastry-info">
+                    <h3>White Sauce Penne Pasta</h3>
+                    <p>Classic creamy alfredo-style pasta tossed with sweet corn, olives, and a side of buttered garlic bread.</p>
+                    <span class="price">₹190</span>
+                </div>
+            </div>
+
+            <div class="pastry-card">
+                <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=600" class="pastry-img" alt="Dil Kush">
+                <div class="pastry-info">
+                    <h3>Fruit & Nut 'Dil Kush' Danish</h3>
+                    <p>A gourmet take on the local Dil Kush, filled with sweet coconut, tutti-frutti, and honey-glaze.</p>
+                    <span class="price">₹150</span>
+                </div>
+            </div>
+
+            <div class="pastry-card">
+                <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=600" class="pastry-img" alt="Chai Cake">
+                <div class="pastry-info">
+                    <h3>Irani Maska Cake Slice</h3>
+                    <p>Soft, dense sponge cake infused with cardamom—the perfect companion for your evening brew.</p>
+                    <span class="price">₹110</span>
+                </div>
+            </div>
+
+            <div class="pastry-card">
+                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600" class="pastry-img" alt="Cheese Puff">
+                <div class="pastry-info">
+                    <h3>Green Chilli Cheese Swirl</h3>
+                    <p>A spicy savory pastry featuring melted cheddar and fresh chopped local green chillies.</p>
+                    <span class="price">₹140</span>
+                </div>
+            </div>
+
+            <div class="pastry-card">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600" class="pastry-img" alt="Osmania Croissant">
+                <div class="pastry-info">
+                    <h3>Osmania Butter Croissant</h3>
+                    <p>A flaky French croissant with the signature salt-and-sweet hint of Hyderabad's famous Osmania biscuits.</p>
+                    <span class="price">₹130</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="back-btn">← Back to Main Menu</a>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #999;">
+        © 2026 Brew Haven Cafe | Sourced Responsibly in Hyderabad.
+    </footer>
+
+</body>
+</html>

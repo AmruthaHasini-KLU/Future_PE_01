@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Collection | Brew Haven Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a2c2a;
+            --accent: #d4a373;
+            --bg-warm: #fdf5f0;
+            --white: #ffffff;
+            --text-main: #43302b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background: var(--white);
+            padding: 70px 8%;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        header p { color: #887; font-size: 1.1rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 5%;
+        }
+
+        /* Modern Coffee Grid */
+        .coffee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .coffee-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(67, 48, 43, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .coffee-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(74, 44, 42, 0.12);
+        }
+
+        .coffee-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .coffee-card:hover .coffee-img {
+            transform: scale(1.05);
+        }
+
+        .coffee-info {
+            padding: 30px;
+        }
+
+        .coffee-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .coffee-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .price {
+            display: block;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.1rem;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        /* Navigation Button */
+        .nav-footer {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(74, 44, 42, 0.2);
+        }
+
+        .back-btn:hover {
+            background: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Coffee Collection</h1>
+        <p>Expertly roasted, passionately brewed.</p>
+    </header>
+
+    <div class="container">
+        <div class="coffee-grid">
+            
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600" class="coffee-img" alt="Classic Cappuccino">
+                <div class="coffee-info">
+                    <h3>Classic Cappuccino</h3>
+                    <p>Double-shot espresso with equal parts steamed milk and deep layers of silky foam.</p>
+                    <span class="price">₹190</span>
+                </div>
+            </div>
+
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600" class="coffee-img" alt="Cold Brew">
+                <div class="coffee-info">
+                    <h3>Araku Cold Brew</h3>
+                    <p>Slow-steeped for 18 hours for an incredibly smooth, low-acid, and bold finish.</p>
+                    <span class="price">₹220</span>
+                </div>
+            </div>
+
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600" class="coffee-img" alt="Caramel Latte">
+                <div class="coffee-info">
+                    <h3>Velvet Caramel Latte</h3>
+                    <p>Rich espresso and steamed milk swirled with artisan salted caramel syrup.</p>
+                    <span class="price">₹210</span>
+                </div>
+            </div>
+
+            <div class="coffee-card">
+                <img src="https://cdn-productdbimages.barry-callebaut.com/sites/default/files/styles/web_vend_bc-481x481/public/externals/3d4fe83e5c5efdd3a95d1aabd9cba4b8.jpg?itok=5QfJoNcf" class="coffee-img" alt="Hazelnut Latte">
+                <div class="coffee-info">
+                    <h3>Hazelnut Dream</h3>
+                    <p>A nutty twist on our classic latte, featuring roasted hazelnut notes and velvet foam.</p>
+                    <span class="price">₹230</span>
+                </div>
+            </div>
+
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600" class="coffee-img" alt="Mocha">
+                <div class="coffee-info">
+                    <h3>Dark Cocoa Mocha</h3>
+                    <p>The perfect marriage of premium Dutch cocoa and our signature bold espresso.</p>
+                    <span class="price">₹240</span>
+                </div>
+            </div>
+
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600" class="coffee-img" alt="Flat White">
+                <div class="coffee-info">
+                    <h3>Artisan Flat White</h3>
+                    <p>Micro-foamed milk poured over a ristretto shot for a rich, coffee-forward experience.</p>
+                    <span class="price">₹200</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-footer">
+            <a href="index.html" class="back-btn">← Back to Main Menu</a>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Brew Haven Cafe | Sourced Responsibly. Brewed Locally.
+    </footer>
+
+</body>
+</html>

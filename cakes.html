@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Artisan Cakes | Brew Haven Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a2c2a;
+            --accent: #d4a373;
+            --bg-gray: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-gray);
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background: var(--white);
+            padding: 60px 8%;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        header p { color: #666; font-size: 1.1rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        /* Grid Layout */
+        .cake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .cake-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+        }
+
+        .cake-card:hover { transform: translateY(-5px); }
+
+        .cake-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .cake-info { padding: 20px; }
+
+        .cake-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .cake-info p {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        /* Back Button */
+        .footer-nav {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { background: var(--accent); }
+
+        footer-text {
+            display: block;
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Artisan Cakes</h1>
+        <p>Freshly baked every morning</p>
+    </header>
+
+    <div class="container">
+        <div class="cake-grid">
+            
+            <div class="cake-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" alt="Red Velvet">
+                <div class="cake-info">
+                    <h3>Classic Red Velvet</h3>
+                    <p>Soft layers of cocoa-infused cake with silk cream frosting.</p>
+                    <span class="price">₹220 per slice</span>
+                </div>
+            </div>
+
+            <div class="cake-card">
+                <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600" alt="Chocolate Truffle">
+                <div class="cake-info">
+                    <h3>Dark Chocolate Truffle</h3>
+                    <p>Rich ganache layers for the ultimate chocolate lover.</p>
+                    <span class="price">₹240 per slice</span>
+                </div>
+            </div>
+
+            <div class="cake-card">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600" alt="Blueberry Cheesecake">
+                <div class="cake-info">
+                    <h3>Blueberry Baked Cheese</h3>
+                    <p>Vanilla cake with fresh berry swirls and a buttery crust.</p>
+                    <span class="price">₹260 per slice</span>
+                </div>
+            </div>
+
+           <div class="cake-card">
+    <img src="https://eviltwin.kitchen/wp-content/uploads/2016/05/Black-Forest-Cake-37.jpg" alt="Black Forest">
+    <div class="cake-info">
+        <h3>Black Forest</h3>
+        <p>The Black Forest Cake, with its rich chocolate, whipped cream, and cherry layers, is more than just a decadent dessert.</p>
+        <span class="price">₹280 per slice</span>
+    </div>
+</div>
+
+             <div class="cake-card">
+                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600" alt="Tiramisu">
+                <div class="cake-info">
+                    <h3>Tiramisu Opera</h3>
+                    <p>Espresso-soaked layers dusted with premium cocoa.</p>
+                    <span class="price">₹250 per slice</span>
+                </div>
+            </div>
+
+            <div class="cake-card">
+                <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=600" alt="Mango Mousse">
+                <div class="cake-info">
+                    <h3>Mango Passion Mousse</h3>
+                    <p>Light and airy mango mousse with a tropical zest.</p>
+                    <span class="price">₹200 per slice</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-nav">
+            <a href="index.html" class="back-btn">← Back to Main Menu</a>
+        </div>
+    </div>
+
+    <footer-text>
+        © 2026 Brew Haven Cafe | All Desserts are 100% Vegetarian.
+    </footer-text>
+
+</body>
+</html>
