@@ -3,169 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Specials | Brew Haven Cafe</title>
+    <title>Brew Haven Cafe | Hyderabad</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4a2c2a;
-            --accent: #d4a373;
-            --bg-warm: #fdf5f0;
+            --primary: #4a2c2a; 
+            --accent: #d4a373;   
+            --bg-light: #fefae0;       
+            --text-dark: #283618;
             --white: #ffffff;
+            --transition: all 0.3s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-warm);
-            color: #43302b;
-            line-height: 1.6;
-        }
+        /* --- Navigation --- */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary); font-weight: bold; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: var(--transition); }
+        nav ul li a:hover { color: var(--accent); }
 
-        header {
-            background: var(--white);
-            padding: 60px 8%;
-            text-align: left;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        /* --- Hero Slider --- */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
+        .slider { position: absolute; inset: 0; z-index: -1; }
+        .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; animation: fadeSlider 15s infinite; }
+        .slide:nth-child(1) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1920'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1920'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1920'); animation-delay: 10s; }
+        @keyframes fadeSlider { 0%, 100% { opacity: 0; } 10%, 33% { opacity: 1; } 43% { opacity: 0; } }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
+        .btn { padding: 0.8rem 2rem; background: var(--accent); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; transition: var(--transition); text-decoration: none; display: inline-block; }
+        .btn:hover { background: var(--primary); transform: translateY(-3px); }
 
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 5%;
-        }
+        /* --- Sections --- */
+        section { padding: 80px 10%; text-align: center; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 2rem; color: var(--primary); }
 
-        .pastry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+        /* --- Category Grid --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card-link { text-decoration: none; color: inherit; }
+        .card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(74, 44, 42, 0.1); }
+        
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 2rem 1.5rem; }
+        .view-tag { display: block; margin-top: 1rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
 
-        .pastry-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s ease;
-        }
+        /* --- Visit Us Section --- */
+        .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; text-align: left; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .contact-info h3 { color: var(--primary); margin-bottom: 15px; }
+        .contact-info p { margin-bottom: 10px; color: #555; }
+        form input, form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
 
-        .pastry-card:hover { transform: translateY(-8px); }
+        /* --- Confirmation Message --- */
+        #confirmationMessage { display: none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 10px; font-weight: 600; border: 1px solid #c3e6cb; }
 
-        .pastry-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+        /* --- Modal --- */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center; }
+        .modal-content { background: var(--white); padding: 40px; border-radius: 20px; width: 90%; max-width: 450px; position: relative; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 1.5rem; cursor: pointer; }
 
-        .pastry-info { padding: 25px; }
+        footer { background: var(--primary); color: white; padding: 2rem; text-align: center; }
 
-        .pastry-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-weight: 600;
-            color: var(--accent);
-            display: block;
-            margin-top: 15px;
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 12px 30px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-        }
+        @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>From Our Mini Kitchen</h1>
-        <p>Freshly prepared hot bites to fuel your productivity.</p>
-    </header>
+    <nav>
+        <div class="logo">Brew Haven</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Menu</a></li>
+            <li><a href="#booking">Book</a></li>
+            <li><a href="#contact">Visit</a></li>
+        </ul>
+    </nav>
 
-    <div class="container">
-        <div class="pastry-grid">
-            
-            <div class="pastry-card">
-                <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600" class="pastry-img" alt="Masala Noodles">
-                <div class="pastry-info">
-                    <h3>Masala Street Noodles</h3>
-                    <p>Wok-tossed noodles with crunchy local veggies and a spicy Hyderabadi "Thela" style masala kick.</p>
-                    <span class="price">₹160</span>
-                </div>
-            </div>
-
-            <div class="pastry-card">
-                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600" class="pastry-img" alt="Creamy Pasta">
-                <div class="pastry-info">
-                    <h3>White Sauce Penne Pasta</h3>
-                    <p>Classic creamy alfredo-style pasta tossed with sweet corn, olives, and a side of buttered garlic bread.</p>
-                    <span class="price">₹190</span>
-                </div>
-            </div>
-
-            <div class="pastry-card">
-                <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=600" class="pastry-img" alt="Dil Kush">
-                <div class="pastry-info">
-                    <h3>Fruit & Nut 'Dil Kush' Danish</h3>
-                    <p>A gourmet take on the local Dil Kush, filled with sweet coconut, tutti-frutti, and honey-glaze.</p>
-                    <span class="price">₹150</span>
-                </div>
-            </div>
-
-            <div class="pastry-card">
-                <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=600" class="pastry-img" alt="Chai Cake">
-                <div class="pastry-info">
-                    <h3>Irani Maska Cake Slice</h3>
-                    <p>Soft, dense sponge cake infused with cardamom—the perfect companion for your evening brew.</p>
-                    <span class="price">₹110</span>
-                </div>
-            </div>
-
-            <div class="pastry-card">
-                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600" class="pastry-img" alt="Cheese Puff">
-                <div class="pastry-info">
-                    <h3>Green Chilli Cheese Swirl</h3>
-                    <p>A spicy savory pastry featuring melted cheddar and fresh chopped local green chillies.</p>
-                    <span class="price">₹140</span>
-                </div>
-            </div>
-
-            <div class="pastry-card">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600" class="pastry-img" alt="Osmania Croissant">
-                <div class="pastry-info">
-                    <h3>Osmania Butter Croissant</h3>
-                    <p>A flaky French croissant with the signature salt-and-sweet hint of Hyderabad's famous Osmania biscuits.</p>
-                    <span class="price">₹130</span>
-                </div>
-            </div>
-
+    <section id="home" class="hero">
+        <div class="slider">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
         </div>
+        <div class="hero-content">
+            <h1>Your Second Home in Hyderabad</h1>
+            <p>Specialty Coffee | Group Study Space | Mini Kitchen</p><br>
+            <a href="#services" class="btn">Explore Menu</a>
+        </div>
+    </section>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="index.html" class="back-btn">← Back to Main Menu</a>
+    <section id="services">
+        <h2>Explore Our Haven</h2>
+        <div class="grid">
+            <a href="coffee.html" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600" alt="Coffee Collection">
+                    <div class="card-content">
+                        <h3>Coffee Collection</h3>
+                        <p>Araku Valley Pour-overs to Velvet Lattes.</p>
+                        <span class="view-tag">View Collection →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="cakes.html" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" alt="Artisan Cakes">
+                    <div class="card-content">
+                        <h3>Artisan Cakes</h3>
+                        <p>Freshly baked eggless truffles and premium slices.</p>
+                        <span class="view-tag">View Collection →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="pastries.html" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=600" alt="Mini Kitchen">
+                    <div class="card-content">
+                        <h3>Mini Kitchen</h3>
+                        <p>Hot Masala Noodles, Pasta, and local snacks.</p>
+                        <span class="view-tag">View Collection →</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="booking" style="background: #f4f1ea;">
+        <h2>Reserve a Workspace</h2>
+        <p>Form your squads and study together in our dedicated zones.</p><br>
+        <button class="btn" id="openModal">Book Your Spot</button>
+        <div id="confirmationMessage">🎉 Reservation Successful! We've saved a spot for your group.</div>
+    </section>
+
+    <section id="contact">
+        <h2>Visit Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Brew Haven Cafe</h3>
+                <p>📍 Himayat Nagar, Hyderabad</p>
+                <p>⏰ Open Daily: 9 AM - 1 AM</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ hello@brewhaven.com</p>
+            </div>
+            <form id="contactForm">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="3" required></textarea>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2026 Brew Haven Cafe Hyderabad | Sourced Responsibly</p></footer>
+
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Group Study Booking</h3>
+            <form id="resForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="tel" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required>
+                <input type="number" placeholder="No. of People" min="1" max="15" required>
+                <div style="display: flex; gap: 10px;">
+                    <input type="date" required style="flex: 1;">
+                    <input type="time" required style="flex: 1;">
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Confirm Group Booking</button>
+            </form>
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: #999;">
-        © 2026 Brew Haven Cafe | Sourced Responsibly in Hyderabad.
-    </footer>
+    <script>
+        const modal = document.getElementById("bookModal");
+        const openBtn = document.getElementById("openModal");
+        const confirmMsg = document.getElementById("confirmationMessage");
 
+        openBtn.onclick = () => { modal.style.display = "flex"; confirmMsg.style.display = "none"; }
+        document.querySelector(".close").onclick = () => modal.style.display = "none";
+        
+        // Reservation logic with 5-second Reset
+        document.getElementById("resForm").onsubmit = (e) => {
+            e.preventDefault();
+            modal.style.display = "none";
+            confirmMsg.style.display = "block";
+            openBtn.innerText = "Reserved ✓";
+            
+            setTimeout(() => {
+                confirmMsg.style.display = "none";
+                openBtn.innerText = "Book Your Spot";
+            }, 5000); 
+        };
+
+        document.getElementById("contactForm").onsubmit = (e) => {
+            e.preventDefault();
+            alert("Message Sent! We'll get back to you soon.");
+            e.target.reset();
+        };
+    </script>
 </body>
 </html>

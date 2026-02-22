@@ -45,19 +45,21 @@
         /* --- Category Grid --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
         .card-link { text-decoration: none; color: inherit; }
-        .card { background: var(--white); padding: 2.5rem 1.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); }
+        .card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(74, 44, 42, 0.1); }
-        .icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+        
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 2rem 1.5rem; }
+        .view-tag { display: block; margin-top: 1rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
 
-        /* --- Improved Visit Us Section --- */
+        /* --- Visit Us Section --- */
         .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; text-align: left; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .contact-info h3 { color: var(--primary); margin-bottom: 15px; }
         .contact-info p { margin-bottom: 10px; color: #555; }
         form input, form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
 
         /* --- Confirmation Message --- */
-        #confirmationMessage { display: none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 10px; font-weight: 600; border: 1px solid #c3e6cb; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        #confirmationMessage { display: none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 10px; font-weight: 600; border: 1px solid #c3e6cb; }
 
         /* --- Modal --- */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center; }
@@ -66,7 +68,7 @@
 
         footer { background: var(--primary); color: white; padding: 2rem; text-align: center; }
 
-        @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -98,9 +100,36 @@
     <section id="services">
         <h2>Explore Our Haven</h2>
         <div class="grid">
-            <a href="coffee.html" class="card-link"><div class="card"><span class="icon">☕</span><h3>Coffee</h3><p>Araku Valley Pour-overs</p></div></a>
-            <a href="cakes.html" class="card-link"><div class="card"><span class="icon">🍰</span><h3>Cakes</h3><p>Premium Red Velvet</p></div></a>
-            <a href="pastries.html" class="card-link"><div class="card"><span class="icon">🍜</span><h3>Kitchen</h3><p>Masala Street Noodles</p></div></a>
+            <a href="coffee.html" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600" alt="Coffee Collection">
+                    <div class="card-content">
+                        <h3>Coffee Collection</h3>
+                        <p>Araku Valley Pour-overs to Velvet Lattes.</p>
+                        <span class="view-tag">View Collection →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="cakes.html" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" alt="Artisan Cakes">
+                    <div class="card-content">
+                        <h3>Artisan Cakes</h3>
+                        <p>Freshly baked eggless truffles and premium slices.</p>
+                        <span class="view-tag">View Collection →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="pastries.html" class="card-link">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=600" alt="Mini Kitchen">
+                    <div class="card-content">
+                        <h3>Mini Kitchen</h3>
+                        <p>Hot Masala Noodles, Pasta, and local snacks.</p>
+                        <span class="view-tag">View Collection →</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -108,7 +137,7 @@
         <h2>Reserve a Workspace</h2>
         <p>Form your squads and study together in our dedicated zones.</p><br>
         <button class="btn" id="openModal">Book Your Spot</button>
-        <div id="confirmationMessage">🎉 Reservation Successful! See you soon at Brew Haven.</div>
+        <div id="confirmationMessage">🎉 Reservation Successful! We've saved a spot for your group.</div>
     </section>
 
     <section id="contact">
@@ -130,18 +159,21 @@
         </div>
     </section>
 
-    <footer><p>&copy; 2026 Brew Haven Cafe Hyderabad</p></footer>
+    <footer><p>&copy; 2026 Brew Haven Cafe Hyderabad | Sourced Responsibly</p></footer>
 
     <div class="modal" id="bookModal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h3>Group Study Booking</h3>
             <form id="resForm">
-                <input type="text" placeholder="Name" required>
+                <input type="text" placeholder="Full Name" required>
                 <input type="tel" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required>
                 <input type="number" placeholder="No. of People" min="1" max="15" required>
-                <div style="display: flex; gap: 10px;"><input type="date" required style="flex: 1;"><input type="time" required style="flex: 1;"></div>
-                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Confirm Booking</button>
+                <div style="display: flex; gap: 10px;">
+                    <input type="date" required style="flex: 1;">
+                    <input type="time" required style="flex: 1;">
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Confirm Group Booking</button>
             </form>
         </div>
     </div>
@@ -151,17 +183,16 @@
         const openBtn = document.getElementById("openModal");
         const confirmMsg = document.getElementById("confirmationMessage");
 
-        openBtn.onclick = () => { modal.style.display = "flex"; }
+        openBtn.onclick = () => { modal.style.display = "flex"; confirmMsg.style.display = "none"; }
         document.querySelector(".close").onclick = () => modal.style.display = "none";
         
-        // Form Logic with Reset
+        // Reservation logic with 5-second Reset
         document.getElementById("resForm").onsubmit = (e) => {
             e.preventDefault();
             modal.style.display = "none";
             confirmMsg.style.display = "block";
             openBtn.innerText = "Reserved ✓";
             
-            // Auto-Reset after 5 seconds
             setTimeout(() => {
                 confirmMsg.style.display = "none";
                 openBtn.innerText = "Book Your Spot";

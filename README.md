@@ -1,6 +1,6 @@
 # FUTURE_PE_01 – Prompt Engineering Internship Task
 
-## 🚀 AI-Powered Café Website System – “Brews Haven Cafe”
+##  AI-Powered Café Website System – “Brews Haven Cafe”
 
 This repository contains my submission for Task 1 of the Prompt Engineering Internship at Future Interns.
 
@@ -8,7 +8,7 @@ The objective of this project was to demonstrate how structured prompt engineeri
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 For this task, I designed and developed a café website named **“Brews & Bliss”** using HTML and CSS.
 
@@ -24,7 +24,7 @@ The focus was not just on writing code — but on improving output quality throu
 
 ---
 
-## 🧠 Prompt Engineering Strategy
+## Prompt Engineering Strategy
 
 I followed an iterative workflow:
 
@@ -50,7 +50,7 @@ This demonstrated how precise prompting directly impacts technical accuracy and 
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 - `prompts.md` – Structured prompts used during development
 - `outputs.md` – AI-generated responses and refinements
